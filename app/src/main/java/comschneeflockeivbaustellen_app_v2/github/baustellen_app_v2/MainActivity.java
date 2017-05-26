@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button PassVergessenButton;
@@ -23,8 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PassVergessenButton.setOnClickListener(this);
         KeinAccountButton.setOnClickListener(this);
     }
-
-
 
     @Override
     public void onClick(View v) {

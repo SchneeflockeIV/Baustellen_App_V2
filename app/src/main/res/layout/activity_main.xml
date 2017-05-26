@@ -51,8 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:text="@string/buttonAbbrechen"
-            android:onClick="clicked"/>
+            android:text="@string/buttonAbbrechen"/>
 
         <Button
             android:id="@+id/buttonLogin"
@@ -68,7 +67,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/passwortvergessen" />
+        android:text="@string/passwortvergessen"/>
 
     <Button
         android:id="@+id/keinAcc"
