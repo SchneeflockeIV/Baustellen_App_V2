@@ -68,15 +68,13 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/passwortvergessen"
-        android:onClick="clicked1"/>
+        android:text="@string/passwortvergessen" />
 
     <Button
         android:id="@+id/keinAcc"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/keinacc"
-        android:onClick="clicked2"/>
+        android:text="@string/keinacc" />
 
 </LinearLayout>

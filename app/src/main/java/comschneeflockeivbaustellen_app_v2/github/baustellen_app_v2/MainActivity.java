@@ -4,26 +4,38 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button PassVergessenButton;
+    private Button KeinAccountButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PassVergessenButton = (Button) findViewById(R.id.passVergessen);
+        KeinAccountButton = (Button) findViewById(R.id.keinAcc);
+
+        PassVergessenButton.setOnClickListener(this);
+        KeinAccountButton.setOnClickListener(this);
     }
 
-    public void clicked1(View v) {
-      //  if (v.getId() == R.id.passVergessen) {
-            Intent myIntent = new Intent(MainActivity.this, PassVergessen.class);
+
+
+    @Override
+    public void onClick(View v) {
+        if (v == PassVergessenButton) {
+            Intent myIntent = new Intent(this, PassVergessen.class);
             startActivity(myIntent);
-       // }
-    }
-    public void clicked2(View v) {
-        // if(v.getId() == R.id.keinAcc) {
-        Intent myIntent = new Intent(MainActivity.this, AccErstellen.class);
-        startActivity(myIntent);
-        //     setContentView(R.layout.acc_erstellen);
-        //  }
+        }
+        if(v == KeinAccountButton) {
+            Intent myIntent = new Intent(this, AccErstellen.class);
+            startActivity(myIntent);
+        }
+
     }
 }
