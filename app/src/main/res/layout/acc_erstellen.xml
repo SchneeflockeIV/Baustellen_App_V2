@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/gridLayout"
+        android:background="#dddddd">
+
+        <TextView
+            android:id="@+id/AccountErstellen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#DDDDDD"
+            android:background="#39424d"
+            android:padding="10dp"
+            android:text="@string/acc" />
+
+        <RadioGroup
+            android:id="@+id/GESCHLECHT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#dddddd"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+            <TextView
+                android:textSize="20sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/anrede"
+                android:layout_weight="1.0"/>
+            <RadioButton
+                android:id="@+id/FRAU"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/frau"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+            <RadioButton
+                android:id="@+id/HERR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/herr"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RadioGroup
+            android:id="@+id/GRAD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#dddddd"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+            <TextView
+                android:textSize="20sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/grad"
+                android:layout_weight="1.0"/>
+            <RadioButton
+                android:id="@+id/GESELLE"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/geselle"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+            <RadioButton
+                android:id="@+id/MEISTER"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/meister"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <EditText
+            android:id="@+id/BENUTZERNAME"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/benutzername"/>
+
+        <EditText
+            android:id="@+id/vorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/vorname" />
+
+        <EditText
+            android:id="@+id/nachName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nachname" />
+
+        <EditText
+            android:id="@+id/TNUMMER"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/tnummer" />
+
+        <EditText
+            android:id="@+id/PASSWORD1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/passwort" />
+
+        <EditText
+            android:id="@+id/PASSWORD2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/passwort1" />
+
+        <LinearLayout
+            android:id="@+id/BUTTONACCERSTELLEN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <Button
+                android:id="@+id/buttonAbbrechen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/buttonAbbrechen"/>
+
+            <Button
+                android:id="@+id/buttonACCERSTELLEN"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/buttonerstellen" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Baustellen_App_V2</string>
+
+    //Login.xml
+    <string name="login">Login</string>
+    <string name="benutzername">Benutzername</string>
+    <string name="passwort">Passwort</string>
+    <string name="buttonLogin">Login</string>
+    <string name="buttonAbbrechen">Abbrechen</string>
+    <string name="passwortvergessen">Passwort vergessen? Klicken Sie hier.</string>
+    <string name="keinacc">Kein Account? Kicken Sie hier.</string>
+
+    //AccErstellen.xml
+    <string name="acc">Account Erstellen</string>
+    <string name="vorname">Vorname</string>
+    <string name="nachname">Nachname</string>
+    <string name="anrede">Anrede</string>
+    <string name="frau">Frau</string>
+    <string name="herr">Herr</string>
+    <string name="geselle">Geselle</string>
+    <string name="meister">Meister</string>
+    <string name="grad">Grad</string>
+    <string name="strasse">Straße</string>
+    <string name="hausnummer">Hausnummer</string>
+    <string name="ort">Ort</string>
+    <string name="plz">Plz</string>
+    <string name="tnummer">Telefonnummer</string>
+    <string name="passwort1">Passwort bestätigen</string>
+    <string name="buttonerstellen">Erstellen</string>
+
+    //passwort vergessen.xml
+    <string name="passverg">Neues Password erstellen</string>
+    <string name="accname">Account Name</string>
+    <string name="passwort2">Neues Password</string>
+    <string name="buttonbestaetigen">Bestätigen</string>
+
+</resources>

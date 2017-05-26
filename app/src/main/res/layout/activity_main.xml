@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.MainActivity"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/gridLayout">
+
+        <TextView
+            android:id="@+id/Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#DDDDDD"
+            android:background="#39424d"
+            android:padding="10dp"
+            android:text="@string/login" />
+
+        <EditText
+            android:id="@+id/benutzerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/benutzername" />
+
+        <EditText
+            android:id="@+id/passwort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/passwort" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsLayoutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonAbbrechen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/buttonAbbrechen"
+            android:onClick="clicked"/>
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/buttonLogin" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/passVergessen"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/passwortvergessen"
+        android:onClick="clicked1"/>
+
+    <Button
+        android:id="@+id/keinAcc"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/keinacc"
+        android:onClick="clicked2"/>
+
+</LinearLayout>
