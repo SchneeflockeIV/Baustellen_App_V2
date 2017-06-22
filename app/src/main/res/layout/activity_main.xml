@@ -58,22 +58,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:text="@string/buttonLogin" />
+            android:text="@string/buttonLogin"
+            android:onClick="login"/>
 
     </LinearLayout>
 
-    <Button
+    <TextView
         android:id="@+id/passVergessen"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/passwortvergessen"/>
+        android:text="@string/passwortvergessen"
+        android:onClick="clicked"/>
 
-    <Button
+    <TextView
         android:id="@+id/keinAcc"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/keinacc" />
+        android:text="@string/keinacc"
+        android:onClick="clicked"/>
 
 </LinearLayout>

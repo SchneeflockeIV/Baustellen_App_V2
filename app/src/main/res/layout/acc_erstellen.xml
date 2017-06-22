@@ -147,14 +147,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:text="@string/buttonAbbrechen"/>
+                android:text="@string/buttonAbbrechen"
+                android:onClick="clicked"/>
 
             <Button
                 android:id="@+id/buttonACCERSTELLEN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:text="@string/buttonerstellen" />
+                android:text="@string/buttonerstellen"
+                android:onClick="clicked"/>
 
         </LinearLayout>
 
