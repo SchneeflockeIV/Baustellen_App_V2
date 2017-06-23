@@ -24,11 +24,11 @@ public class BaustellenViewActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_baustellen_view);
 
 
-   /*     listView = (ListView) findViewById(R.id.BAUSTELLEN_LIST_VIEW);
+     /*   listView = (ListView) findViewById(R.id.BAUSTELLEN_LIST_VIEW);
         db = new DBManager(this);
         Context ctx = this;
         int itemLayout = R.layout.simple_list_image_item_2;
-        Cursor cursor = db.selectAllePersonen();
+        Cursor cursor = db.selectAlleBaustellen();
         String[] from = new String[] {db.SPALTE_PERSONEN_BILD, db.SPALTE_PERSONEN_NAME, db.SPALTE_PERSONEN_ADRESSE};
         int[] to = new int[] {R.id.MEIN_PERSONEN_BILD, R.id.MEIN_PERSONEN_NAMEN, R.id.MEIN_PERSONEN_ADRESSE};
         MeinAdapter meinAdapter = new MeinAdapter(ctx, itemLayout, cursor, from, to, 0);

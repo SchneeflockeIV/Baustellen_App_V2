@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".PassVergessen">
         </activity>
+        <activity android:name=".BaustellenViewActivity">
+        </activity>
     </application>
 
 </manifest>

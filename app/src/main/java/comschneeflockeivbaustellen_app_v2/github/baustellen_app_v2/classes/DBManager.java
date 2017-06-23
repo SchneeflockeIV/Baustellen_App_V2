@@ -102,9 +102,22 @@ public class DBManager extends SQLiteOpenHelper {
         return acc;
     }
 
+    //Benutzername in tabelle selectieren fals kein vorhanden wird 0 ausgegeben
+    public int accvorhanden(String benutzername) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor meinZeiger;
+        meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_ACC +
+                " WHERE " + SPALTE_ACC_BENUTZERNAME + "= '" + benutzername + "'", null);
+        meinZeiger.moveToFirst();
+
+        meinZeiger.close();
+        return meinZeiger.getCount();
+    }
+
     //Tabelle beim starten der app erstellen (wenn schon einmal erstellt wid keine neue erstellt)
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Tabelle für acc erstellen
         db.execSQL(
                 "CREATE TABLE " + TABELLE_ACC + " (" +
                         SPALTE_ACC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -117,7 +130,6 @@ public class DBManager extends SQLiteOpenHelper {
                         SPALTE_ACC_PASSWORD + " TEXT" +
                         ")"
         );
-        //TODO
         //Tabele erstellen Baustelle
         db.execSQL(
                 "CREATE TABLE " + TABELLE_BAUSTELLEN + " (" +
@@ -130,17 +142,15 @@ public class DBManager extends SQLiteOpenHelper {
                         SPALTE_BAUSTELLEN_BILD + " TEXT" +
                         ")"
         );
-        //TODO Tabele erstellen Material
+        //Material tabelle erstellen
         db.execSQL(
                 "CREATE TABLE " + TABELLE_MATERIAL + " (" +
                         SPALTE_MATERIAL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         SPALTE_MATERIAL_NAME + " TEXT," +
                         SPALTE_MATERIAL_ANZAHL + " TEXT," +
                         SPALTE_MATERIAL_EINZELPREIS + " TEXT," +
-                        SPALTE_MATERIAL_EINZELPREIS + " TEXT," +
                         SPALTE_MATERIAL_GESAMTPREIS + " TEXT,"  +
-                        SPALTE_BAUSTELLEN_ID + " INTEGER FOREIGN KEY REFERENCES " +
-                        "TABELLE_BAUSTELLEN(SPALTE_BAUSTELLEN_ID)" +
+                        SPALTE_BAUSTELLEN_ID + " INTEGER " +
                         ")"
         );
     }

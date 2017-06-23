@@ -46,9 +46,9 @@ public class AccErstellen extends AppCompatActivity {
         password2 = (EditText)findViewById(R.id.PASSWORD2);
 
     }
-
-    private Account fillAccount() {
-        Account acc = new Account();
+    //daten aus den textfeldern/radiobuttons in acc objekt reinschreiben
+    private void fillAccount() {
+        acc = new Account();
         int selectedGeschlechtID = anrede.getCheckedRadioButtonId();
         int selectedRangID = rang.getCheckedRadioButtonId();
 
@@ -62,9 +62,8 @@ public class AccErstellen extends AppCompatActivity {
         acc.setVorname(vorname.getText().toString());
         acc.setTelenummer(telenummer.getText().toString());
         acc.setPassword(password1.getText().toString());
-        return acc;
     }
-
+    //daten in db reinschreiben
     private void insertAccInDB() {
         DBManager db = new DBManager(this);
         db.insertAcc(acc);
@@ -76,22 +75,39 @@ public class AccErstellen extends AppCompatActivity {
         Account acc = db.selectAccount(accountname);
         return acc;
     }
+    //ueberprüfen ob acc schon vorhanden ist in der db
+    private boolean checkaccvorhanden(String Benutzername)
+    {
+        DBManager db = new DBManager(this);
+        if(db.accvorhanden(Benutzername)<=0)
+            return true;
+        return false;
+    }
 
+    //buttons für erstellen und abbrechen implementiert
     public void clicked(View v) {
-        if(v.getId() == R.id.buttonACCERSTELLEN) {
-            String pw1 = password1.getText().toString();
-            String pw2 = password2.getText().toString();
-            if(pw1.equals(pw2)) {
-                acc = fillAccount();
-                insertAccInDB();
-                Toast.makeText(this, "Account erstellt", Toast.LENGTH_SHORT).show();
+            if(v.getId() == R.id.buttonACCERSTELLEN) {
+
+                if(checkaccvorhanden(benutzer.getText().toString())) {
+
+                    String pw1 = password1.getText().toString();
+                    String pw2 = password2.getText().toString();
+
+                    if (pw1.equals(pw2)) {
+                        fillAccount();
+                        insertAccInDB();
+                        Toast.makeText(this, "Account erstellt", Toast.LENGTH_SHORT).show();
+
+                    } else Toast.makeText(this, "Passwörter stimmen nicht überein!", Toast.LENGTH_SHORT).show();
+
+                } else Toast.makeText(this, "Benutzername schon vorhanden", Toast.LENGTH_SHORT).show();
+            }
+            if(v.getId() == R.id.buttonAbbrechen) {
+                Intent myIntent = new Intent(this, MainActivity.class);
+                startActivity(myIntent);
+                finish();
             }
 
-            else Toast.makeText(this, "Passwörter stimmen nicht überein!", Toast.LENGTH_SHORT).show();
-        }
-        if(v.getId() == R.id.buttonAbbrechen) {
-            Account acc = getAccountFromDB("arsch");
-            Toast.makeText(this, acc.getPassword(), Toast.LENGTH_SHORT).show();
-        }
+
     }
 }

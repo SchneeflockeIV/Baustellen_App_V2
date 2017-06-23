@@ -14,6 +14,7 @@ import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBMan
 public class MainActivity extends AppCompatActivity {
     EditText benutzername;
     EditText password;
+    Account acc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +26,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private Account getAccountFromDB(String accountname) {
+    private void getAccountFromDB(String accountname) {
         DBManager db = new DBManager(this);
-        Account acc = db.selectAccount(accountname);
-        return acc;
+        acc = db.selectAccount(accountname);
+
     }
 
     public void login(View v){
-        Account acc = getAccountFromDB(benutzername.getText().toString());
-        String pass = acc.getPassword();
+        if(v.getId()==R.id.buttonLogin){
+            getAccountFromDB(benutzername.getText().toString());
+            String accpass = acc.getPassword();
+            String pass = password.getText().toString();
 
-        if(pass.equals(password.getText().toString())){
-            Intent myIntent = new Intent(this, BaustellenViewActivity.class);
-            startActivity(myIntent);
+            if(accpass.equals(pass)){
+                Intent myIntent = new Intent(this, BaustellenViewActivity.class);
+                startActivity(myIntent);
+            }
+            else Toast.makeText(this, "Password oder Benutzername falsch.", Toast.LENGTH_SHORT).show();
         }
-        else Toast.makeText(this, "Password oder Benutzername falsch.", Toast.LENGTH_SHORT).show();
+
 
 
     }
