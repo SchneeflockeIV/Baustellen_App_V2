@@ -34,12 +34,15 @@ public class MeinAdapter extends CursorAdapter {
     }
     @Override
     public void bindView(View v, Context ctx, Cursor c) {
+
         int image = c.getInt(c.getColumnIndexOrThrow(from[0]));
         ImageView imageView = (ImageView) v.findViewById(to[0]);
         imageView.setImageResource(image);
+
         String text1 = c.getString(c.getColumnIndexOrThrow(from[1]));
         TextView textView1 = (TextView) v.findViewById(to[1]);
         textView1.setText(text1);
+
         String text2 = c.getString(c.getColumnIndexOrThrow(from[2]));
         TextView textView2 = (TextView) v.findViewById(to[2]);
         textView2.setText(text2);

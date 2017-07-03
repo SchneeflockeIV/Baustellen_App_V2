@@ -7,7 +7,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/BAUSTELLENBILD"
+        android:id="@+id/MEIN_BAUSTELLEN_BILD"
         android:layout_width="75dp"
         android:layout_height="75dp" />
 
@@ -19,13 +19,13 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/BAUSTELLEN_NAME"
+            android:id="@+id/MEIN_BAUSTELLEN_NAME"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/BAUSTELLEN_ADRESSE"
+            android:id="@+id/MEIN_BAUSTELLEN_HERR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp" />

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             String pass = password.getText().toString();
 
             if(accpass.equals(pass)){
-                Intent myIntent = new Intent(this, BaustellenViewActivity.class);
+                Intent myIntent = new Intent(this, BaustellenViewActivity2.class);
                 startActivity(myIntent);
             }
             else Toast.makeText(this, "Password oder Benutzername falsch.", Toast.LENGTH_SHORT).show();

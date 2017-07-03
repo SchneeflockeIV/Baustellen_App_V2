@@ -16,12 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccErstellen">
-        </activity>
-        <activity android:name=".PassVergessen">
-        </activity>
-        <activity android:name=".BaustellenViewActivity">
-        </activity>
+        <activity android:name=".AccErstellen" />
+        <activity android:name=".PassVergessen" />
+        <activity android:name=".BaustellenViewActivity" />
+        <activity
+            android:name=".BaustellenViewActivity2"
+            android:label="@string/title_activity_baustellen_view2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MaterialViewActivity"
+            android:label="@string/title_activity_material_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BaustelleErstellen"></activity>
     </application>
 
 </manifest>

@@ -18,39 +18,42 @@ public class DBManager extends SQLiteOpenHelper {
 
     // Aufbau der Tabelle Event
     // Account Daten
-    private static final String TABELLE_ACC = "Account";
-    private static final String SPALTE_ACC_ID = "AccID";
-    private static final String SPALTE_ACC_BENUTZERNAME = "Benutzername";
-    private static final String SPALTE_ACC_GESCHLECHT = "Geschlecht";
-    private static final String SPALTE_ACC_GRAD = "Grad";
-    private static final String SPALTE_ACC_VORNAME = "Vorname";
-    private static final String SPALTE_ACC_NACHNAME = "Nachname";
-    private static final String SPALTE_ACC_TELEFONNUMMER = "Telfefonnummer";
-    private static final String SPALTE_ACC_PASSWORD = "Password";
+    public static final String TABELLE_ACC = "Account";
+    public static final String SPALTE_ACC_ID = "AccID";
+    public static final String SPALTE_ACC_BENUTZERNAME = "Benutzername";
+    public static final String SPALTE_ACC_GESCHLECHT = "Geschlecht";
+    public static final String SPALTE_ACC_GRAD = "Grad";
+    public static final String SPALTE_ACC_VORNAME = "Vorname";
+    public static final String SPALTE_ACC_NACHNAME = "Nachname";
+    public static final String SPALTE_ACC_TELEFONNUMMER = "Telfefonnummer";
+    public static final String SPALTE_ACC_PASSWORD = "Password";
     //Baustellen Daten
-    //TODO
+
     //Baustellen Tabele struktorieren
-    private static final String TABELLE_BAUSTELLEN = "Baustellen";
-    private static final String SPALTE_BAUSTELLEN_ID = "BaustellenID";
-    private static final String SPALTE_BAUSTELLEN_NAME = "Baustellenname";
-    private static final String SPALTE_BAUSTELLEN_STRASSE = "Strasse";
-    private static final String SPALTE_BAUSTELLEN_ORT = "Ort";
-    private static final String SPALTE_BAUSTELLEN_PLZ = "Plz";
-    private static final String SPALTE_BAUSTELLEN_BAUHERR = "Bauherr";
-    private static final String SPALTE_BAUSTELLEN_BILD = "Bild";
+    public static final String TABELLE_BAUSTELLEN = "Baustellen";
+    public static final String SPALTE_BAUSTELLEN_ID = "BaustellenID";
+    public static final String SPALTE_BAUSTELLEN_NAME = "Baustellenname";
+    public static final String SPALTE_BAUSTELLEN_STRASSE = "Strasse";
+    public static final String SPALTE_BAUSTELLEN_ORT = "Ort";
+    public static final String SPALTE_BAUSTELLEN_PLZ = "Plz";
+    public static final String SPALTE_BAUSTELLEN_BAUHERR = "Bauherr";
+    public static final String SPALTE_BAUSTELLEN_BILD = "Bild";
 
     //Material Tabelle
-    private static final String TABELLE_MATERIAL = "Material";
-    private static final String SPALTE_MATERIAL_ID = "MaterialID";
-    private static final String SPALTE_MATERIAL_NAME = "Materialname";
-    private static final String SPALTE_MATERIAL_ANZAHL = "Anzahl";
-    private static final String SPALTE_MATERIAL_EINZELPREIS = "Einzelpreis";
-    private static final String SPALTE_MATERIAL_GESAMTPREIS = "Gesamtpreis";
+    public static final String TABELLE_MATERIAL = "Material";
+    public static final String SPALTE_MATERIAL_ID = "MaterialID";
+    public static final String SPALTE_MATERIAL_NAME = "Materialname";
+    public static final String SPALTE_MATERIAL_ANZAHL = "Anzahl";
+    public static final String SPALTE_MATERIAL_EINZELPREIS = "Einzelpreis";
+    public static final String SPALTE_MATERIAL_GESAMTPREIS = "Gesamtpreis";
 
     public DBManager(Context cxt) {
         super(cxt, DATENBANK_NAMEN, null, DATENBANK_VERSION);
         SQLiteDatabase db = this.getWritableDatabase();
     }
+
+
+    //ACC Datenbank methoden
 
     //Neue Zeile in Acc einfügen
     public boolean insertAcc(Account acc){
@@ -114,6 +117,17 @@ public class DBManager extends SQLiteOpenHelper {
         return meinZeiger.getCount();
     }
 
+
+    // Baustellen Datenbank methoden
+
+    public Cursor selectAlleBaustellen() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_BAUSTELLEN, null);
+        meinZeiger.moveToFirst();
+        return meinZeiger;
+    }
+
+
     //Tabelle beim starten der app erstellen (wenn schon einmal erstellt wid keine neue erstellt)
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -139,7 +153,7 @@ public class DBManager extends SQLiteOpenHelper {
                         SPALTE_BAUSTELLEN_ORT + " TEXT," +
                         SPALTE_BAUSTELLEN_PLZ + " TEXT," +
                         SPALTE_BAUSTELLEN_BAUHERR + " TEXT,"  +
-                        SPALTE_BAUSTELLEN_BILD + " TEXT" +
+                        SPALTE_BAUSTELLEN_BILD + " INTEGER" +
                         ")"
         );
         //Material tabelle erstellen
@@ -147,9 +161,9 @@ public class DBManager extends SQLiteOpenHelper {
                 "CREATE TABLE " + TABELLE_MATERIAL + " (" +
                         SPALTE_MATERIAL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         SPALTE_MATERIAL_NAME + " TEXT," +
-                        SPALTE_MATERIAL_ANZAHL + " TEXT," +
-                        SPALTE_MATERIAL_EINZELPREIS + " TEXT," +
-                        SPALTE_MATERIAL_GESAMTPREIS + " TEXT,"  +
+                        SPALTE_MATERIAL_ANZAHL + " INTEGER," +
+                        SPALTE_MATERIAL_EINZELPREIS + " DOUBLE," +
+                        SPALTE_MATERIAL_GESAMTPREIS + " DOUBLE,"  +
                         SPALTE_BAUSTELLEN_ID + " INTEGER " +
                         ")"
         );

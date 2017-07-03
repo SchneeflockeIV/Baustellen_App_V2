@@ -33,5 +33,7 @@
     <string name="accname">Account Name</string>
     <string name="passwort2">Neues Password</string>
     <string name="buttonbestaetigen">Bestätigen</string>
+    <string name="title_activity_baustellen_view2">BaustellenViewActivity2</string>
+    <string name="title_activity_material_view">MaterialViewActivity</string>
 
 </resources>
