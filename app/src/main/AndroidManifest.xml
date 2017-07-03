@@ -27,7 +27,8 @@
             android:name=".MaterialViewActivity"
             android:label="@string/title_activity_material_view"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".BaustelleErstellen"></activity>
+        <activity android:name=".BaustelleErstellen" />
+        <activity android:name=".MaterialErstellen"></activity>
     </application>
 
 </manifest>

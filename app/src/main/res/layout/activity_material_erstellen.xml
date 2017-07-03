@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.BaustelleErstellen"
+    tools:context="comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.MaterialErstellen"
     android:padding="10dp">
 
     <LinearLayout
@@ -15,54 +15,41 @@
         android:background="#dddddd">
 
         <TextView
-            android:id="@+id/BAUSTELLEERSTELLEN"
+            android:id="@+id/MATERIALERSTELLEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textColor="#DDDDDD"
             android:background="#39424d"
             android:padding="10dp"
-            android:text="@string/baustelleerstellen" />
+            android:text="@string/materialerstellen" />
 
         <EditText
-            android:id="@+id/BAUSTELLEN_NAME"
+            android:id="@+id/MATERIAL_NAME"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/baustellenname"/>
+            android:hint="@string/materialname"/>
 
         <EditText
-            android:id="@+id/BAUSTELLEN_STRASSE"
+            android:id="@+id/MATERIAL_ANZAHL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/baustellenstrasse"/>
+            android:hint="@string/materialanzahl"/>
 
         <EditText
-            android:id="@+id/BAUSTELLEN_ORT"
+            android:id="@+id/MATERIAL_EINZELPREIS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/baustellenort"/>
-
-        <EditText
-            android:id="@+id/BAUSTELLEN_PLZ"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:hint="@string/baustellenplz"/>
-
-        <EditText
-            android:id="@+id/BAUSTELLEN_BAUHERR"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/baustellenbauherr" />
+            android:hint="@string/materialeinzelpreis"/>
 
         <LinearLayout
-            android:id="@+id/BUTTONBAUSTELLE_ERSTELLEN"
+            android:id="@+id/BUTTONMATERIAL_ERSTELLEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp">
 
             <Button
-                android:id="@+id/BAUSTELLE_BUTTON_ABBRECHEN"
+                android:id="@+id/MATERIAL_BUTTON_ABBRECHEN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
@@ -70,7 +57,7 @@
                 android:onClick="clicked"/>
 
             <Button
-                android:id="@+id/BAUSTELLE_BUTTON_ERSTELLEN"
+                android:id="@+id/MATERIAL_BUTTON_ERSTELLEN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"

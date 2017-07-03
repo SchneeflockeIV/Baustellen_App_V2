@@ -36,4 +36,18 @@
     <string name="title_activity_baustellen_view2">BaustellenViewActivity2</string>
     <string name="title_activity_material_view">MaterialViewActivity</string>
 
+    //baustelle erstellen
+    <string name="baustelleerstellen">Baustelle Erstellen</string>
+    <string name="baustellenname">Baustellen Name</string>
+    <string name="baustellenstrasse">Baustellen Straße</string>
+    <string name="baustellenplz">Baustellen PLZ</string>
+    <string name="baustellenort">Baustellen Ort</string>
+    <string name="baustellenbauherr">Baustellen Bauherr</string>
+
+    //material erstellen
+    <string name="materialerstellen">Material Anlegen</string>
+    <string name="materialname">Material Name</string>
+    <string name="materialanzahl">Anzahl</string>
+    <string name="materialeinzelpreis">Einzelpreis</string>
+
 </resources>
