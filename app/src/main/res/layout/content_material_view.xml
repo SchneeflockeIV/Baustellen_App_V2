@@ -8,4 +8,9 @@
     tools:context="comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.MaterialViewActivity"
     tools:showIn="@layout/activity_material_view">
 
+    <ListView
+        android:id="@+id/MATERIAL_LIST_VIEW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </android.support.constraint.ConstraintLayout>

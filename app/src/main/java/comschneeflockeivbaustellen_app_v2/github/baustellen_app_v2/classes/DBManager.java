@@ -154,7 +154,7 @@ public class DBManager extends SQLiteOpenHelper {
         return baustellenListe;
     }
 
-    //Neue Zeile in Acc einfügen
+    //Neue Zeile in Bau einfügen
     public boolean insertBau(Baustellen bau){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues neueZeile = new ContentValues();
@@ -169,6 +169,37 @@ public class DBManager extends SQLiteOpenHelper {
         long result = db.insert(TABELLE_BAUSTELLEN, null, neueZeile);
         if(result == -1) return false;
         else return true;
+    }
+
+    //Material Methoden
+
+    public Cursor selectAlleMaterial() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_MATERIAL, null);
+        meinZeiger.moveToFirst();
+        return meinZeiger;
+    }
+
+    // Mehtode um den Material-Cursor in eine Material-Arralist umzuwandeln
+    public ArrayList<Material> getMaterialListe() {
+        ArrayList<Material> materialListe = new ArrayList<>();
+        Cursor meinZeiger = selectAlleMaterial();
+
+        meinZeiger.moveToPosition(-1);
+
+        try {
+            while(meinZeiger.moveToNext()) {
+                Material m = new Material();
+                m.setMatid(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_MATERIAL_ID)));
+                m.setMaterialname(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_MATERIAL_NAME)));
+                m.setEinzelpreis(meinZeiger.getDouble(meinZeiger.getColumnIndex(SPALTE_MATERIAL_EINZELPREIS)));
+                m.setAnzahl(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_MATERIAL_ANZAHL)));
+                materialListe.add(m);
+            }
+        } finally {
+            meinZeiger.close();
+        }
+        return materialListe;
     }
 
 

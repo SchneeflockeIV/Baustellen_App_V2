@@ -10,7 +10,6 @@ public class Material {
     private String materialname;
     private int anzahl;
     private double einzelpreis;
-
     private double gesamtpreis = getAnzahl() * getEinzelpreis();
 
     public int getMatid() {
@@ -48,8 +47,5 @@ public class Material {
     public double getGesamtpreis() {
         return gesamtpreis;
     }
-
-
-
 
 }

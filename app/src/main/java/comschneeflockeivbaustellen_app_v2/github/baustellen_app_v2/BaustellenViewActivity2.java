@@ -36,10 +36,7 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
 
        final Intent myIntent = new Intent(this, BaustelleErstellen.class);
 
-       /* fab.setOnClickListener(){
-            Intent myIntent = new Intent(this, BaustelleErstellen.class);
-            startActivity(myIntent);
-        };*/
+
         fab.setOnClickListener(new View.OnClickListener() {
 
 

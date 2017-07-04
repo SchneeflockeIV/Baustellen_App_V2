@@ -103,8 +103,6 @@ public class AccErstellen extends AppCompatActivity {
                 } else Toast.makeText(this, "Benutzername schon vorhanden", Toast.LENGTH_SHORT).show();
             }
             if(v.getId() == R.id.buttonAbbrechen) {
-                Intent myIntent = new Intent(this, MainActivity.class);
-                startActivity(myIntent);
                 finish();
             }
 
