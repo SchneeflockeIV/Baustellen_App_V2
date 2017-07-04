@@ -171,6 +171,15 @@ public class DBManager extends SQLiteOpenHelper {
         else return true;
     }
 
+    public boolean deleteBau(Baustellen bau){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String where = SPALTE_BAUSTELLEN_ID + "=?";
+        String [] whereArg = new String[]{Integer.toString(bau.getBauId())};
+        db.delete(TABELLE_BAUSTELLEN, where, whereArg);
+        db.delete(TABELLE_MATERIAL, where, whereArg);
+        return true;
+    }
+
     //Material Methoden
 
     public Cursor selectAlleMaterial() {

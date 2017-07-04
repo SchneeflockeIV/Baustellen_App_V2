@@ -1,17 +1,21 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,10 +24,12 @@ import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.Mein
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baustellen;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
-public class BaustellenViewActivity2 extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class BaustellenViewActivity2 extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     ListView listView;
     DBManager db;
+    Intent myIntent;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,9 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-       final Intent myIntent = new Intent(this, BaustelleErstellen.class);
+        myIntent = new Intent(this, BaustelleErstellen.class);
+
+        context = this;
 
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +61,9 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
         initControlls();
 
         listView.setOnItemClickListener(this);
+        listView.setOnItemLongClickListener(this);
     }
+
 
     private void initControlls(){
         listView = (ListView) findViewById(R.id.BAUSTELLEN_LIST_VIEW);
@@ -65,10 +75,40 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
         listView.setAdapter(MyAdapter);
     }
 
-
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.d("HSKL", "id = " + id);
+     //   myIntent = new Intent(this, BaustelleErstellen.class);
+     //   startActivity(myIntent);
+     //   finish();
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(this);
+        final Baustellen bau = (Baustellen) listView.getAdapter().getItem(position);
+        myAlertDialog.setTitle("Löschen?");
+        myAlertDialog.setMessage("Möchten Sie die Baustelle " +bau.getBaustellenname()+" wirklich aus der Liste löschen?" );
+        myAlertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface arg0, int arg1) {
+                if(db.deleteBau(bau)){
+                    Toast.makeText(context, "Baustelle erfolgreich aus Liste entfernt", Toast.LENGTH_SHORT).show();
+                    myIntent = new Intent(context, BaustellenViewActivity2.class);
+                    startActivity(myIntent);
+                    finish();
+
+                }
+                else{
+                    Toast.makeText(context, "Fehler beim löschen der ausgewählten Baustelle", Toast.LENGTH_SHORT).show();
+                }
+            }});
+        myAlertDialog.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface arg0, int arg1) {
+                // do something when the Cancel button is clicked
+            }});
+        myAlertDialog.show();
+        return false;
     }
 }
+
