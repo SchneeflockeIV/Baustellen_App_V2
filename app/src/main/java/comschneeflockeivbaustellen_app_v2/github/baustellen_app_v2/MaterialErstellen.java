@@ -17,6 +17,8 @@ public class MaterialErstellen extends AppCompatActivity {
     EditText mateinzelp;
     Baustellen bau;
     Material mat;
+    int baustellen_id;
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +29,18 @@ public class MaterialErstellen extends AppCompatActivity {
         matanzahl = (EditText)findViewById(R.id.MATERIAL_ANZAHL);
         mateinzelp = (EditText)findViewById(R.id.MATERIAL_EINZELPREIS);
 
+        extras = getIntent().getExtras();
+     //   if(baustellen_id > -1){
+            baustellen_id = extras.getInt("BAUSTELLEN_ID");
+      //  }
+
     }
 
 
     private void fillMaterial(){
         mat = new Material();
+
+        mat.setBauid(baustellen_id);
 
         mat.setMaterialname(matname.getText().toString());
         mat.setAnzahl(Integer.parseInt(matanzahl.getText().toString()));

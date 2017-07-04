@@ -189,10 +189,17 @@ public class DBManager extends SQLiteOpenHelper {
         return meinZeiger;
     }
 
+    public Cursor selectAlleMaterialInKey(int key) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_MATERIAL +" WHERE " + SPALTE_BAUSTELLEN_ID +" = '" + key +"'", null);
+        meinZeiger.moveToFirst();
+        return meinZeiger;
+    }
+
     // Mehtode um den Material-Cursor in eine Material-Arralist umzuwandeln
-    public ArrayList<Material> getMaterialListe() {
+    public ArrayList<Material> getMaterialListe(int key) {
         ArrayList<Material> materialListe = new ArrayList<>();
-        Cursor meinZeiger = selectAlleMaterial();
+        Cursor meinZeiger = selectAlleMaterialInKey(key);
 
         meinZeiger.moveToPosition(-1);
 

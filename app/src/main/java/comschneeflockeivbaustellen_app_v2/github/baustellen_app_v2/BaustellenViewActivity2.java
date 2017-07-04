@@ -31,6 +31,8 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
     Intent myIntent;
     Context context;
 
+    boolean deleteClick = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,13 +79,17 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-     //   myIntent = new Intent(this, BaustelleErstellen.class);
-     //   startActivity(myIntent);
-     //   finish();
+        if(!deleteClick) {
+            final Baustellen bau = (Baustellen) listView.getAdapter().getItem(position);
+            myIntent = new Intent(this, MaterialViewActivity.class);
+            myIntent.putExtra("BAUSTELLEN_ID", bau.getBauId());
+            startActivity(myIntent);
+        }
     }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        deleteClick = true;
         AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(this);
         final Baustellen bau = (Baustellen) listView.getAdapter().getItem(position);
         myAlertDialog.setTitle("Löschen?");
@@ -95,17 +101,19 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
                     Toast.makeText(context, "Baustelle erfolgreich aus Liste entfernt", Toast.LENGTH_SHORT).show();
                     myIntent = new Intent(context, BaustellenViewActivity2.class);
                     startActivity(myIntent);
+                    deleteClick = false;
                     finish();
 
                 }
                 else{
                     Toast.makeText(context, "Fehler beim löschen der ausgewählten Baustelle", Toast.LENGTH_SHORT).show();
+                    deleteClick = false;
                 }
             }});
         myAlertDialog.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface arg0, int arg1) {
-                // do something when the Cancel button is clicked
+                deleteClick = false;
             }});
         myAlertDialog.show();
         return false;
