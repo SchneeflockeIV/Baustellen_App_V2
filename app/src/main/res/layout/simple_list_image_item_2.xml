@@ -9,7 +9,8 @@
     <ImageView
         android:id="@+id/MEIN_BAUSTELLEN_BILD"
         android:layout_width="75dp"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@mipmap/ic_launcher"/>
 
     <LinearLayout
         android:paddingLeft="10dp"
@@ -23,12 +24,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="Main Text"/>
         <TextView
             android:id="@+id/MEIN_BAUSTELLEN_HERR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="Sub Text"/>
 
     </LinearLayout>
 

@@ -13,7 +13,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.MeinAdapter;
+import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.MeinAdapterBaustelle;
+import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baustellen;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
 public class BaustellenViewActivity2 extends AppCompatActivity implements AdapterView.OnItemClickListener{
@@ -29,31 +33,41 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+       final Intent myIntent = new Intent(this, BaustelleErstellen.class);
+
+       /* fab.setOnClickListener(){
+            Intent myIntent = new Intent(this, BaustelleErstellen.class);
+            startActivity(myIntent);
+        };*/
         fab.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+             //   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+             //           .setAction("Action", null).show();
+                startActivity(myIntent);
+
             }
         });
 
+        initControlls();
 
-        listView = (ListView) findViewById(R.id.BAUSTELLEN_LIST_VIEW);
-        db = new DBManager(this);
-
-        Context ctx = this;
-        int itemLayout = R.layout.simple_list_image_item_2;
-        Cursor cursor = db.selectAlleBaustellen();
-        String[] from = new String[] {db.SPALTE_BAUSTELLEN_BILD, db.SPALTE_BAUSTELLEN_NAME, db.SPALTE_BAUSTELLEN_BAUHERR};
-        int[] to = new int[] {R.id.MEIN_BAUSTELLEN_BILD, R.id.MEIN_BAUSTELLEN_NAME, R.id.MEIN_BAUSTELLEN_HERR};
-
-        MeinAdapter meinAdapter = new MeinAdapter(ctx, itemLayout, cursor, from, to, 0);
-
-        listView.setAdapter(meinAdapter);
         listView.setOnItemClickListener(this);
     }
+
+    private void initControlls(){
+        listView = (ListView) findViewById(R.id.BAUSTELLEN_LIST_VIEW);
+        db = new DBManager(this);
+        ArrayList<Baustellen> baustellenlist = db.getBaustellenListe();
+
+        MeinAdapterBaustelle MyAdapter = new MeinAdapterBaustelle(this, baustellenlist);
+
+        listView.setAdapter(MyAdapter);
+    }
+
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

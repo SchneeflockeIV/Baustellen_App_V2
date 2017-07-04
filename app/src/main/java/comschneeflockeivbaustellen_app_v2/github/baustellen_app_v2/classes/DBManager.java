@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by Daisu_000 on 29.05.2017.
  */
@@ -125,6 +127,48 @@ public class DBManager extends SQLiteOpenHelper {
         Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_BAUSTELLEN, null);
         meinZeiger.moveToFirst();
         return meinZeiger;
+    }
+
+    // Mehtode um den Baustellen-Cursor in eine Baustellen-Arralist umzuwandeln
+    public ArrayList<Baustellen> getBaustellenListe() {
+        ArrayList<Baustellen> baustellenListe = new ArrayList<>();
+        Cursor meinZeiger = selectAlleBaustellen();
+
+        meinZeiger.moveToPosition(-1);
+
+        try {
+            while(meinZeiger.moveToNext()) {
+                Baustellen b = new Baustellen();
+                b.setBauId(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_ID)));
+                b.setBaustellenname(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_NAME)));
+                b.setBauherr(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_BAUHERR)));
+                b.setBaustellenbild(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_BILD)));
+                b.setOrt(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_ORT)));
+                b.setPlz(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_PLZ)));
+                b.setStrasse(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_STRASSE)));
+                baustellenListe.add(b);
+            }
+        } finally {
+            meinZeiger.close();
+        }
+        return baustellenListe;
+    }
+
+    //Neue Zeile in Acc einfügen
+    public boolean insertBau(Baustellen bau){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues neueZeile = new ContentValues();
+
+        neueZeile.put(SPALTE_BAUSTELLEN_NAME, bau.getBaustellenname());
+        neueZeile.put(SPALTE_BAUSTELLEN_BAUHERR, bau.getBauherr());
+        neueZeile.put(SPALTE_BAUSTELLEN_ORT, bau.getOrt());
+        neueZeile.put(SPALTE_BAUSTELLEN_PLZ, bau.getPlz());
+        neueZeile.put(SPALTE_BAUSTELLEN_STRASSE, bau.getStrasse());
+
+
+        long result = db.insert(TABELLE_BAUSTELLEN, null, neueZeile);
+        if(result == -1) return false;
+        else return true;
     }
 
 
