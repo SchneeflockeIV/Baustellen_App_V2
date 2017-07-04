@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp">
-
-    <TextView
-        android:id="@+id/MEIN_MATERIAL_NAME"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="text1"
-        android:textSize="20sp"
-        android:layout_weight="1.0"
-        android:gravity="center"/>
-
-    <TextView
-        android:id="@+id/MEIN_MATERAÌAL_ANZAHL"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="text2"
-        android:textSize="20sp"
-        android:layout_weight="1.0"
-        android:gravity="center"/>
-
-    <TextView
-        android:id="@+id/MEIN_MATERIAL_EINZELPREIS"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="text3"
-        android:textSize="20sp"
-        android:layout_weight="1.0"
-        android:gravity="center"/>
-
-    <TextView
-        android:id="@+id/MEIN_MATERIAL_GESAMTPREIS"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="text4"
-        android:textSize="20sp"
-        android:layout_weight="1.0"
-        android:gravity="center"/>
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/MEIN_MATERIAL_NAME"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="text1"
+            android:textSize="20sp"
+            android:layout_weight="1.0"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/MEIN_MATERAÌAL_ANZAHL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="text2"
+            android:textSize="20sp"
+            android:layout_weight="1.0"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/MEIN_MATERIAL_EINZELPREIS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="text3"
+            android:textSize="20sp"
+            android:layout_weight="1.0"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/MEIN_MATERIAL_GESAMTPREIS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="text4"
+            android:textSize="20sp"
+            android:layout_weight="1.0"
+            android:gravity="center"/>
+
+    </LinearLayout>
 </LinearLayout>

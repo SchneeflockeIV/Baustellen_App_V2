@@ -1,16 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.MaterialViewActivity"
-    tools:showIn="@layout/activity_material_view">
+    tools:showIn="@layout/activity_material_view"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/MATERIAL_LIST_VIEW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@mipmap/ic_launcher"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:textAlignment="center">
+            <TextView
+                android:id="@+id/MATERIAL_BAUSTELLEN_NAME"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="Name"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/MATERIAL_BAUSTELLEN_STRASSE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:text="Straße"/>
+                <TextView
+                    android:id="@+id/MATERIAL_BAUSTELLEN_PLZ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:text="PLZ"/>
+                <TextView
+                    android:id="@+id/MATERIAL_BAUSTELLEN_ORT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:text="ORT"/>
 
-</android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/MATERIAL_BAUSTELLEN_HERR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="BAUHERR"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="Materialname"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="Anzahl"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="Einzelpreis"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="Gesamtpreis"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+        <ListView
+            android:id="@+id/MATERIAL_LIST_VIEW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -6,11 +6,22 @@ package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes;
 
 public class Material {
 
+
+
+    private int bauid;
     private int matid;
     private String materialname;
     private int anzahl;
     private double einzelpreis;
     private double gesamtpreis = getAnzahl() * getEinzelpreis();
+
+    public int getBauid() {
+        return bauid;
+    }
+
+    public void setBauid(int bauid) {
+        this.bauid = bauid;
+    }
 
     public int getMatid() {
         return matid;

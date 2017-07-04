@@ -202,6 +202,22 @@ public class DBManager extends SQLiteOpenHelper {
         return materialListe;
     }
 
+    public boolean insertMat(Material mat){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues neueZeile = new ContentValues();
+
+        neueZeile.put(SPALTE_MATERIAL_NAME, mat.getMaterialname());
+        neueZeile.put(SPALTE_MATERIAL_ANZAHL, mat.getAnzahl());
+        neueZeile.put(SPALTE_MATERIAL_EINZELPREIS, mat.getEinzelpreis());
+        neueZeile.put(SPALTE_MATERIAL_GESAMTPREIS, mat.getGesamtpreis());
+        neueZeile.put(SPALTE_BAUSTELLEN_ID, mat.getBauid());
+
+
+        long result = db.insert(TABELLE_MATERIAL, null, neueZeile);
+        if(result == -1) return false;
+        else return true;
+    }
+
 
     //Tabelle beim starten der app erstellen (wenn schon einmal erstellt wid keine neue erstellt)
     @Override
