@@ -48,6 +48,7 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
              //   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
              //           .setAction("Action", null).show();
                 startActivity(myIntent);
+                finish();
 
             }
         });

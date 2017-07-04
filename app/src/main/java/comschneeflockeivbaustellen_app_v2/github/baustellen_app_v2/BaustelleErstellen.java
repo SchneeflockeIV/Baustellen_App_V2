@@ -1,5 +1,6 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -53,6 +54,12 @@ public class BaustelleErstellen extends AppCompatActivity {
             insertBauInDB();
             Toast.makeText(this, "Baustelle erstellt", Toast.LENGTH_SHORT).show();
         }
+        else if (v.getId() == R.id.BAUSTELLE_BUTTON_ABBRECHEN){
+            Toast.makeText(this, "Abgebrochen", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        final Intent myIntent = new Intent(this, BaustellenViewActivity2.class);
+        startActivity(myIntent);
         finish();
     }
 }
