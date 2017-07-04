@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baustellen;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
@@ -47,6 +48,11 @@ public class BaustelleErstellen extends AppCompatActivity {
     }
 
     public void clicked(View v){
-        if(v.getId() == R.id.)
+        if(v.getId() == R.id.BAUSTELLE_BUTTON_ERSTELLEN){
+            fillBau();
+            insertBauInDB();
+            Toast.makeText(this, "Baustelle erstellt", Toast.LENGTH_SHORT).show();
+        }
+        finish();
     }
 }
