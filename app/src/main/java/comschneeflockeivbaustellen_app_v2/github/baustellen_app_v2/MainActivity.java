@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             }
             else Toast.makeText(this, "Password oder Benutzername falsch.", Toast.LENGTH_SHORT).show();
         }
+        benutzername.setText("");
+        password.setText("");
     }
 
     public void clicked(View v) {

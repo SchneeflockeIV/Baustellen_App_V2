@@ -132,6 +132,8 @@ public class AccErstellen extends AppCompatActivity {
                         finish();
                     }
                 }
+            } else{
+                finish();
             }
 
     }

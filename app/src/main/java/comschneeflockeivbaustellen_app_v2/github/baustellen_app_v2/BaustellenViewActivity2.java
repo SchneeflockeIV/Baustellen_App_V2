@@ -54,6 +54,7 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
             public void onClick(View view) {
              //   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
              //           .setAction("Action", null).show();
+                myIntent = new Intent(context, BaustelleErstellen.class);
                 startActivity(myIntent);
                 finish();
 

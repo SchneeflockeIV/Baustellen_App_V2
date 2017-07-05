@@ -34,26 +34,33 @@ public class PassVergessen extends AppCompatActivity {
     //TODO Abfragen ob acc vorhanden ist
     public void PassAendern(View v){
         if(v.getId()==R.id.BUTTONPASSWORD){
-            DBManager db = new DBManager(this);
-            String bname = benutzername.getText().toString();
-            String pw1 = password1.getText().toString();
-            String pw2 = password2.getText().toString();
-            //acc = getAccountFromDB(bname);
-            if(pw1.equals(pw2))
-            {
-                db.setNewPassword(bname,pw1);
-                Toast.makeText(this,
-                        "Password geändert!",
-                        Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Toast.makeText(this,
-                        "Passwörter stimmen nicht überein!",
-                        Toast.LENGTH_SHORT).show();
+            if (!benutzername.getText().toString().equals("") && !password1.getText().toString().equals("") &&
+                    !password2.getText().toString().equals("")) {
+                DBManager db = new DBManager(this);
+                String bname = benutzername.getText().toString();
+                String pw1 = password1.getText().toString();
+                String pw2 = password2.getText().toString();
+                //acc = getAccountFromDB(bname);
+                if (pw1.equals(pw2)) {
+                    db.setNewPassword(bname, pw1);
+                    Toast.makeText(this,
+                            "Passwort erfolgreich abgeändert!",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(this,
+                            "Passwörter stimmen nicht überein!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            } else{                    Toast.makeText(this,
+                    "Bitte füllen Sie alle Felder aus",
+                    Toast.LENGTH_SHORT).show();
+
             }
         }
-
+        else{
+               finish();
+        }
     }
 
     private Account getAccountFromDB(String accountname) {

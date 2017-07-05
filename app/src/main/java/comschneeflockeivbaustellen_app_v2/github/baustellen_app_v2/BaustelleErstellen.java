@@ -63,6 +63,8 @@ public class BaustelleErstellen extends AppCompatActivity {
         }
         if (v.getId() == R.id.BAUSTELLE_BUTTON_ABBRECHEN) {
             Toast.makeText(this, "Abgebrochen", Toast.LENGTH_SHORT).show();
+            final Intent abbIntent = new Intent(this, BaustellenViewActivity2.class);
+            startActivity(abbIntent);
             finish();
         }
     }

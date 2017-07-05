@@ -69,6 +69,7 @@ public class MaterialViewActivity extends AppCompatActivity {
                 myIntent = new Intent(context, MaterialErstellen.class);
                 myIntent.putExtra("BAUSTELLEN_ID", baustellen_id);
                 startActivity(myIntent);
+                finish();
             }
         });
 

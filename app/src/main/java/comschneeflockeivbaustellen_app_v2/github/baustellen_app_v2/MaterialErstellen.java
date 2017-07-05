@@ -1,5 +1,6 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -54,11 +55,24 @@ public class MaterialErstellen extends AppCompatActivity {
 
     public void clicked(View v){
         if(v.getId() == R.id.MATERIAL_BUTTON_ERSTELLEN){
-            fillMaterial();
-            insertMatInDB();
-            Toast.makeText(this, "Material erstellt", Toast.LENGTH_SHORT).show();
+            if (!matname.getText().toString().equals("") && !matanzahl.getText().toString().equals("") &&
+                    !mateinzelp.getText().toString().equals("")) {
+                fillMaterial();
+                insertMatInDB();
+                Toast.makeText(this, "Material erstellt", Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(this, MaterialViewActivity.class);
+                myIntent.putExtra("BAUSTELLEN_ID", baustellen_id);
+                startActivity(myIntent);
+                finish();
+            }
+            else Toast.makeText(this, "Bitte füllen Sie alle Felder aus", Toast.LENGTH_SHORT).show();
+        } else{
+            Intent abbIntent = new Intent(this, MaterialViewActivity.class);
+            abbIntent.putExtra("BAUSTELLEN_ID", baustellen_id);
+            startActivity(abbIntent);
+            finish();
         }
-        finish();
+
     }
 
 }
