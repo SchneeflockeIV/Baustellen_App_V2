@@ -12,7 +12,7 @@
 
     <ListView
         android:id="@+id/BAUSTELLEN_LIST_VIEW"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     
 </LinearLayout>
