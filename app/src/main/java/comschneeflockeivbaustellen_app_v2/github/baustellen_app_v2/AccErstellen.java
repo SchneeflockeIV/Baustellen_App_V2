@@ -107,24 +107,32 @@ public class AccErstellen extends AppCompatActivity {
     public void clicked(View v) {
             if(v.getId() == R.id.buttonACCERSTELLEN) {
 
-                if(checkaccvorhanden(benutzer.getText().toString())) {
+                if (!benutzer.getText().toString().equals("") && !vorname.getText().toString().equals("") &&
+                        !nachname.getText().toString().equals("") && !telenummer.getText().toString().equals("")) {
 
-                    String pw1 = password1.getText().toString();
-                    String pw2 = password2.getText().toString();
+                    if (checkaccvorhanden(benutzer.getText().toString())) {
 
-                    if (pw1.equals(pw2)) {
-                        fillAccount();
-                        insertAccInDB();
-                        Toast.makeText(this, "Account erstellt", Toast.LENGTH_SHORT).show();
+                        String pw1 = password1.getText().toString();
+                        String pw2 = password2.getText().toString();
 
-                    } else Toast.makeText(this, "Passwörter stimmen nicht überein!", Toast.LENGTH_SHORT).show();
+                        if (pw1.equals(pw2)) {
+                            fillAccount();
+                            insertAccInDB();
+                            Toast.makeText(this, "Account erstellt", Toast.LENGTH_SHORT).show();
+                            finish();
 
-                } else Toast.makeText(this, "Benutzername schon vorhanden", Toast.LENGTH_SHORT).show();
+                        } else
+                            Toast.makeText(this, "Passwörter stimmen nicht überein!", Toast.LENGTH_SHORT).show();
+
+                    } else
+                        Toast.makeText(this, "Benutzername schon vorhanden", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
+                    if (v.getId() == R.id.buttonAbbrechen) {
+                        finish();
+                    }
+                }
             }
-            if(v.getId() == R.id.buttonAbbrechen) {
-                finish();
-            }
-
 
     }
 }
