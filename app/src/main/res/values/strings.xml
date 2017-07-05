@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Baustellen_App_V2</string>
+    <string name="app_name">Baustellenverwaltung</string>
 
     //Login.xml
     <string name="login">Login</string>
@@ -8,7 +8,7 @@
     <string name="buttonLogin">Login</string>
     <string name="buttonAbbrechen">Abbrechen</string>
     <string name="passwortvergessen">Passwort vergessen? Klicken Sie hier.</string>
-    <string name="keinacc">Kein Account? Kicken Sie hier.</string>
+    <string name="keinacc">Keinen Account? Kicken Sie hier.</string>
 
     //AccErstellen.xml
     <string name="acc">Account Erstellen</string>
@@ -29,23 +29,23 @@
     <string name="buttonerstellen">Erstellen</string>
 
     //passwort vergessen.xml
-    <string name="passverg">Neues Password erstellen</string>
+    <string name="passverg">Passwort ändern</string>
     <string name="accname">Account Name</string>
-    <string name="passwort2">Neues Password</string>
+    <string name="passwort2">Neues Passwort</string>
     <string name="buttonbestaetigen">Bestätigen</string>
-    <string name="title_activity_baustellen_view2">BaustellenViewActivity2</string>
-    <string name="title_activity_material_view">MaterialViewActivity</string>
+    <string name="title_activity_baustellen_view2">Baustellen Übersicht</string>
+    <string name="title_activity_material_view">Baustellen Details</string>
 
     //baustelle erstellen
-    <string name="baustelleerstellen">Baustelle Erstellen</string>
-    <string name="baustellenname">Baustellen Name</string>
-    <string name="baustellenstrasse">Baustellen Straße</string>
-    <string name="baustellenplz">Baustellen PLZ</string>
-    <string name="baustellenort">Baustellen Ort</string>
-    <string name="baustellenbauherr">Baustellen Bauherr</string>
+    <string name="baustelleerstellen">Baustelle anlegen</string>
+    <string name="baustellenname">Name</string>
+    <string name="baustellenstrasse">Straße</string>
+    <string name="baustellenplz">PLZ</string>
+    <string name="baustellenort">Ort</string>
+    <string name="baustellenbauherr">Bauherr</string>
 
     //material erstellen
-    <string name="materialerstellen">Material Anlegen</string>
+    <string name="materialerstellen">Material anlegen</string>
     <string name="materialname">Material Name</string>
     <string name="materialanzahl">Anzahl</string>
     <string name="materialeinzelpreis">Einzelpreis</string>

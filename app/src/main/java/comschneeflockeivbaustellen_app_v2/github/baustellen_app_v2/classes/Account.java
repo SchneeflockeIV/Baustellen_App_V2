@@ -1,12 +1,10 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes;
 
-/**
- * Created by Daisu_000 on 31.05.2017.
- */
 
+// Account Klasse um Accounts anlegen zu können
 public class Account {
 
-
+    // Variablen anlegen
     private int id;
     private String benutzerName;
     private String Vorname;
@@ -16,6 +14,7 @@ public class Account {
     private String Anrede;
     private String Nachname;
 
+    // Getter, Setter
     public int getId() {
         return id;
     }

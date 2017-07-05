@@ -1,25 +1,21 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Account;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
-/**
- * Created by Daisu_000 on 26.05.2017.
- */
 
+// Klasse um Account zu erstellen und mit Datenbank über Adapter zu kommunizieren
 public class AccErstellen extends AppCompatActivity {
 
+    // Variablen anlegen
     RadioGroup anrede;
     RadioGroup rang;
 
@@ -82,18 +78,12 @@ public class AccErstellen extends AppCompatActivity {
         acc.setTelenummer(telenummer.getText().toString());
         acc.setPassword(password1.getText().toString());
     }
-    //daten in db reinschreiben
+    //daten in db schreiben
     private void insertAccInDB() {
         DBManager db = new DBManager(this);
         db.insertAcc(acc);
     }
 
-
-    private Account getAccountFromDB(String accountname) {
-        DBManager db = new DBManager(this);
-        Account acc = db.selectAccount(accountname);
-        return acc;
-    }
     //ueberprüfen ob acc schon vorhanden ist in der db
     private boolean checkaccvorhanden(String Benutzername)
     {

@@ -5,14 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * Created by Daisu_000 on 29.05.2017.
- */
 
+// Datenbank Manager
 public class DBManager extends SQLiteOpenHelper {
 
     public static final int DATENBANK_VERSION = 1;
@@ -75,7 +72,7 @@ public class DBManager extends SQLiteOpenHelper {
         else return true;
     }
 
-    //Password ändern wo Benutzername übereinstimmt
+    //Password ändern falls Benutzername übereinstimmt
     public void setNewPassword(String benutzername, String newPassword) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -86,7 +83,7 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
 
-    //Acc selectieren und daten in AccObjekt schreiben
+    //Acc selektieren und Daten in AccObjekt schreiben
     public Account selectAccount(String benutzername) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor meinZeiger;
@@ -107,7 +104,7 @@ public class DBManager extends SQLiteOpenHelper {
         return acc;
     }
 
-    //Benutzername in tabelle selectieren fals kein vorhanden wird 0 ausgegeben
+    //Benutzername in tabelle selektieren falls kein vorhanden wird 0 ausgegeben
     public int accvorhanden(String benutzername) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor meinZeiger;
@@ -189,6 +186,7 @@ public class DBManager extends SQLiteOpenHelper {
         else return true;
     }
 
+    // Baustelle löschen
     public boolean deleteBau(Baustellen bau){
         SQLiteDatabase db = this.getWritableDatabase();
         String where = SPALTE_BAUSTELLEN_ID + "=?";
@@ -236,6 +234,7 @@ public class DBManager extends SQLiteOpenHelper {
         return materialListe;
     }
 
+    // Material in Liste einfügen
     public boolean insertMat(Material mat){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues neueZeile = new ContentValues();

@@ -6,19 +6,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Account;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
-/**
- * Created by Daisu_000 on 26.05.2017.
- */
-
+// Klasse um Passwort zu ändern
 public class PassVergessen extends AppCompatActivity {
 
+    // Variablen anlegen
     EditText benutzername;
     EditText password1;
     EditText password2;
-    Account acc;
 
 
     @Override
@@ -31,7 +27,8 @@ public class PassVergessen extends AppCompatActivity {
         password2 = (EditText)findViewById(R.id.VERGESSEN_PASSWORD2);
 
     }
-    //TODO Abfragen ob acc vorhanden ist
+
+    // Methode um Passwort zu ändern, mit überprüfungen
     public void PassAendern(View v){
         if(v.getId()==R.id.BUTTONPASSWORD){
             if (!benutzername.getText().toString().equals("") && !password1.getText().toString().equals("") &&
@@ -40,7 +37,6 @@ public class PassVergessen extends AppCompatActivity {
                 String bname = benutzername.getText().toString();
                 String pw1 = password1.getText().toString();
                 String pw2 = password2.getText().toString();
-                //acc = getAccountFromDB(bname);
                 if (pw1.equals(pw2)) {
                     db.setNewPassword(bname, pw1);
                     Toast.makeText(this,
@@ -62,13 +58,5 @@ public class PassVergessen extends AppCompatActivity {
                finish();
         }
     }
-
-    private Account getAccountFromDB(String accountname) {
-        DBManager db = new DBManager(this);
-        Account acc = db.selectAccount(accountname);
-        return acc;
-    }
-
-
 
 }

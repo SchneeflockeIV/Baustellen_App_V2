@@ -10,8 +10,10 @@ import android.widget.Toast;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Account;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
-
+// Login Fenster, erscheint nacht dem starten der App
 public class MainActivity extends AppCompatActivity {
+
+    // Variablen anlegen
     EditText benutzername;
     EditText password;
     Account acc;
@@ -27,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Methode um Account Informationen aus der Datenbank auszulesen
     private void getAccountFromDB(String accountname) {
         db = new DBManager(this);
         acc = db.selectAccount(accountname);
 
     }
 
+    // Methode um gültigen Account mit der in der DB hinterlegten Accounts zu vergleichen,
+    // Button handling
     public void login(View v){
         db = new DBManager(this);
         if(v.getId()==R.id.buttonLogin){
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         password.setText("");
     }
 
+    // Überprüfen ob Textfelder angeklickt wurden
     public void clicked(View v) {
         if (v.getId() == R.id.passVergessen) {
             Intent myIntent = new Intent(this, PassVergessen.class);

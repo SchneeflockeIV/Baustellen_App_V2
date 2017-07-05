@@ -1,11 +1,10 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes;
 
-/**
- * Created by Daisu_000 on 03.07.2017.
- */
 
+// Account Klasse um Baustellen anlegen zu können
 public class Baustellen {
 
+    // Variablen anlegen
     private int bauid;
     private String baustellenname;
     private String strasse;
@@ -14,9 +13,8 @@ public class Baustellen {
     private String bauherr;
     private int baustellenbild;
 
-    public int getBaustellenbild() {
-        return baustellenbild;
-    }
+    // Getter, Setter
+    public int getBaustellenbild() {return baustellenbild;}
 
     public void setBaustellenbild(int baustellenbild) {
         this.baustellenbild = baustellenbild;

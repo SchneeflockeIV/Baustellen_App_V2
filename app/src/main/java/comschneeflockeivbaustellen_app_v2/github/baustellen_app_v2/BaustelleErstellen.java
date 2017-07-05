@@ -5,14 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baustellen;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
+// Klasse um Baustellen zu erstellen und über Adapter mit Datenbank kommunizieren
 public class BaustelleErstellen extends AppCompatActivity {
 
+    // Variablen anlegen
     EditText bauname;
     EditText baustrasse;
     EditText bauort;
@@ -33,6 +34,7 @@ public class BaustelleErstellen extends AppCompatActivity {
         bauherr = (EditText)findViewById(R.id.BAUSTELLEN_BAUHERR);
     }
 
+    // Methode um Baustellen Objekt zu initialisieren
     private void fillBau(){
         bau = new Baustellen();
 
@@ -43,11 +45,13 @@ public class BaustelleErstellen extends AppCompatActivity {
         bau.setBauherr(bauherr.getText().toString());
     }
 
+    // Methode um Obekt in DB zu schreiben
     private void insertBauInDB(){
         DBManager db = new DBManager(this);
         db.insertBau(bau);
     }
 
+    // Methode um zu überprüfen welcher BUtton geklickt wurde
     public void clicked(View v){
         if(v.getId() == R.id.BAUSTELLE_BUTTON_ERSTELLEN){
             if (!bauname.getText().toString().equals("") && !baustrasse.getText().toString().equals("") &&

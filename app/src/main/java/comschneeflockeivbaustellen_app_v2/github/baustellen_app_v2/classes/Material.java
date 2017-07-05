@@ -1,13 +1,10 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes;
 
-/**
- * Created by Daisu_000 on 03.07.2017.
- */
 
+// Account Klasse um Material anlegen zu können
 public class Material {
 
-
-
+    // Variablen anlegen
     private int bauid;
     private int matid;
     private String materialname;
@@ -15,6 +12,8 @@ public class Material {
     private int einzelpreis;
     private int gesamtpreis;
 
+
+    // Getter, Setter
     public int getBauid() {
         return bauid;
     }

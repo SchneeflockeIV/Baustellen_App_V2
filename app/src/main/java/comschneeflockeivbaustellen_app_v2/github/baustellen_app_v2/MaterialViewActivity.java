@@ -4,25 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.MeinAdapterBaustelle;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.MeinAdapterMaterial;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baustellen;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Material;
 
+// Baustellen Details, Materialübersicht
 public class MaterialViewActivity extends AppCompatActivity {
 
+    // Variablen anlegen
     ListView listView;
     DBManager db;
     Bundle extras;
@@ -52,9 +50,7 @@ public class MaterialViewActivity extends AppCompatActivity {
         context = this;
 
         extras = getIntent().getExtras();
-      //  if(baustellen_id > 0){
-            baustellen_id = extras.getInt("BAUSTELLEN_ID");
-      //  }
+        baustellen_id = extras.getInt("BAUSTELLEN_ID");
 
         fillBaustellenDaten();
 
@@ -64,8 +60,6 @@ public class MaterialViewActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //           .setAction("Action", null).show();
                 myIntent = new Intent(context, MaterialErstellen.class);
                 myIntent.putExtra("BAUSTELLEN_ID", baustellen_id);
                 startActivity(myIntent);
@@ -76,8 +70,8 @@ public class MaterialViewActivity extends AppCompatActivity {
         initControlls(baustellen_id);
     }
 
+    // Mehtode um Material in Liste zu initialisieren
     private void initControlls(int key){
-        //if(key > 0){
         listView = (ListView) findViewById(R.id.MATERIAL_LIST_VIEW);
         db = new DBManager(this);
         ArrayList<Material> materiallist = db.getMaterialListe(key);
@@ -85,9 +79,9 @@ public class MaterialViewActivity extends AppCompatActivity {
         MeinAdapterMaterial MyAdapter = new MeinAdapterMaterial(this, materiallist);
 
         listView.setAdapter(MyAdapter);
-   //     }
     }
 
+    // Mehtode um an Informationen aus Baustellen-Objekt zu gelangen
     private void fillBaustellenDaten(){
         DBManager db = new DBManager(this);
         Baustellen bau = db.selectBaustelle(baustellen_id);

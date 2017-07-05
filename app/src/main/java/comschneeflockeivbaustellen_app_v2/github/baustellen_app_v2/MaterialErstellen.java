@@ -11,12 +11,13 @@ import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baust
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Material;
 
+// Klasse um Material in Baustellen Details zu schreiben
 public class MaterialErstellen extends AppCompatActivity {
 
+    // Variablen anlegen
     EditText matname;
     EditText matanzahl;
     EditText mateinzelp;
-    Baustellen bau;
     Material mat;
     int baustellen_id;
     Bundle extras;
@@ -31,13 +32,12 @@ public class MaterialErstellen extends AppCompatActivity {
         mateinzelp = (EditText)findViewById(R.id.MATERIAL_EINZELPREIS);
 
         extras = getIntent().getExtras();
-     //   if(baustellen_id > -1){
-            baustellen_id = extras.getInt("BAUSTELLEN_ID");
-      //  }
+        baustellen_id = extras.getInt("BAUSTELLEN_ID");
 
     }
 
 
+    // Methode um Liste mit Material zu füllen
     private void fillMaterial(){
         mat = new Material();
 
@@ -48,11 +48,13 @@ public class MaterialErstellen extends AppCompatActivity {
         mat.setEinzelpreis(Integer.parseInt(mateinzelp.getText().toString()));
     }
 
+    // Methode um Material in DB zu schreiben
     private void insertMatInDB(){
         DBManager db = new DBManager(this);
         db.insertMat(mat);
     }
 
+    // Methode um cklicks zu handlen
     public void clicked(View v){
         if(v.getId() == R.id.MATERIAL_BUTTON_ERSTELLEN){
             if (!matname.getText().toString().equals("") && !matanzahl.getText().toString().equals("") &&

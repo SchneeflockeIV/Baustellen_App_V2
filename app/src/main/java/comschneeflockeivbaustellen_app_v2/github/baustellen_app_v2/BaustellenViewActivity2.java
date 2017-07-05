@@ -1,17 +1,13 @@
 package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -19,13 +15,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.MeinAdapter;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.adapters.MeinAdapterBaustelle;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.Baustellen;
 import comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2.classes.DBManager;
 
+// Baustellen View, Übersicht
 public class BaustellenViewActivity2 extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
+    // Variablen anlegen
     ListView listView;
     DBManager db;
     Intent myIntent;
@@ -67,7 +64,7 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
         listView.setOnItemLongClickListener(this);
     }
 
-
+    // Methode initialisert Liste
     private void initControlls(){
         listView = (ListView) findViewById(R.id.BAUSTELLEN_LIST_VIEW);
         db = new DBManager(this);
@@ -77,6 +74,7 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
 
         listView.setAdapter(MyAdapter);
     }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,6 +86,7 @@ public class BaustellenViewActivity2 extends AppCompatActivity implements Adapte
         }
     }
 
+    // Longcklick Methode um Objekt aus Liste und DB zu entfernen
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         deleteClick = true;
