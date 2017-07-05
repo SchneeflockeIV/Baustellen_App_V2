@@ -114,9 +114,9 @@ public class DBManager extends SQLiteOpenHelper {
         meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_ACC +
                 " WHERE " + SPALTE_ACC_BENUTZERNAME + "= '" + benutzername + "'", null);
         meinZeiger.moveToFirst();
-
+        int output = meinZeiger.getCount();
         meinZeiger.close();
-        return meinZeiger.getCount();
+        return output;
     }
 
 
@@ -208,7 +208,7 @@ public class DBManager extends SQLiteOpenHelper {
                 Material m = new Material();
                 m.setMatid(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_MATERIAL_ID)));
                 m.setMaterialname(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_MATERIAL_NAME)));
-                m.setEinzelpreis(meinZeiger.getDouble(meinZeiger.getColumnIndex(SPALTE_MATERIAL_EINZELPREIS)));
+                m.setEinzelpreis(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_MATERIAL_EINZELPREIS)));
                 m.setAnzahl(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_MATERIAL_ANZAHL)));
                 materialListe.add(m);
             }
@@ -269,8 +269,8 @@ public class DBManager extends SQLiteOpenHelper {
                         SPALTE_MATERIAL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         SPALTE_MATERIAL_NAME + " TEXT," +
                         SPALTE_MATERIAL_ANZAHL + " INTEGER," +
-                        SPALTE_MATERIAL_EINZELPREIS + " DOUBLE," +
-                        SPALTE_MATERIAL_GESAMTPREIS + " DOUBLE,"  +
+                        SPALTE_MATERIAL_EINZELPREIS + " INTEGER," +
+                        SPALTE_MATERIAL_GESAMTPREIS + " INTEGER,"  +
                         SPALTE_BAUSTELLEN_ID + " INTEGER " +
                         ")"
         );

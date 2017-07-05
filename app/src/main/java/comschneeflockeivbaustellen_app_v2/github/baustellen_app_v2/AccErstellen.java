@@ -2,6 +2,7 @@ package comschneeflockeivbaustellen_app_v2.github.baustellen_app_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -21,6 +22,12 @@ public class AccErstellen extends AppCompatActivity {
 
     RadioGroup anrede;
     RadioGroup rang;
+
+    RadioButton herr;
+    RadioButton frau;
+    RadioButton meister;
+    RadioButton geselle;
+
     EditText benutzer;
     EditText vorname;
     EditText nachname;
@@ -36,8 +43,20 @@ public class AccErstellen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acc_erstellen);
 
-        anrede = (RadioGroup)findViewById(R.id.GESCHLECHT);
-        rang = (RadioGroup)findViewById(R.id.GRAD);
+        anrede = (RadioGroup) findViewById(R.id.GESCHLECHT);
+        herr = (RadioButton) findViewById(R.id.HERR);
+        frau = (RadioButton) findViewById(R.id.FRAU);
+
+        herr.setChecked(true);
+
+
+        rang = (RadioGroup) findViewById(R.id.GRAD);
+        meister = (RadioButton) findViewById(R.id.MEISTER);
+        geselle = (RadioButton) findViewById(R.id.GESELLE);
+
+
+        geselle.setChecked(true);
+
         benutzer = (EditText)findViewById(R.id.BENUTZERNAME);
         vorname = (EditText)findViewById(R.id.vorName);
         nachname = (EditText)findViewById(R.id.nachName);

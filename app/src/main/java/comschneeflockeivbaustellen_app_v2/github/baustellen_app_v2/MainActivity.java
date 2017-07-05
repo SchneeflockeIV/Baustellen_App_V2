@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     EditText benutzername;
     EditText password;
     Account acc;
+    DBManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +28,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getAccountFromDB(String accountname) {
-        DBManager db = new DBManager(this);
+        db = new DBManager(this);
         acc = db.selectAccount(accountname);
 
     }
 
     public void login(View v){
+        db = new DBManager(this);
         if(v.getId()==R.id.buttonLogin){
-            getAccountFromDB(benutzername.getText().toString());
-            String accpass = acc.getPassword();
-            String pass = password.getText().toString();
+            String userName = benutzername.getText().toString();
+            if(db.accvorhanden(userName)>0) {
+                getAccountFromDB(userName);
+                String accpass = acc.getPassword();
+                String pass = password.getText().toString();
 
-            if(accpass.equals(pass)){
-                Intent myIntent = new Intent(this, BaustellenViewActivity2.class);
-                startActivity(myIntent);
+                String accName = acc.getBenutzerName();
+                String name = benutzername.getText().toString();
+
+                if(accpass.equals(pass) && accName.equals(name)){
+                              Intent myIntent = new Intent(this, BaustellenViewActivity2.class);
+                              startActivity(myIntent);
+                }
+                else Toast.makeText(this, "Password oder Benutzername falsch.", Toast.LENGTH_SHORT).show();
             }
             else Toast.makeText(this, "Password oder Benutzername falsch.", Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
 
     public void clicked(View v) {

@@ -44,7 +44,7 @@ public class MaterialErstellen extends AppCompatActivity {
 
         mat.setMaterialname(matname.getText().toString());
         mat.setAnzahl(Integer.parseInt(matanzahl.getText().toString()));
-        mat.setEinzelpreis(Double.parseDouble(mateinzelp.getText().toString()));
+        mat.setEinzelpreis(Integer.parseInt(mateinzelp.getText().toString()));
     }
 
     private void insertMatInDB(){

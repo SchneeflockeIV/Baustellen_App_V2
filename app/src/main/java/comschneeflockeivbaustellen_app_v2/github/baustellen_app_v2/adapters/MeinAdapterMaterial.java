@@ -61,14 +61,14 @@ public class MeinAdapterMaterial extends BaseAdapter {
         View rowView;
         rowView = inflater.inflate(R.layout.simple_list_item_1, null);
         tvMatname = (TextView) rowView.findViewById(R.id.MEIN_MATERIAL_NAME);
-        tvMatanzahl = (TextView) rowView.findViewById(R.id.MEIN_MATERAÌAL_ANZAHL);
+        tvMatanzahl = (TextView) rowView.findViewById(R.id.MEIN_MATERIAL_ANZAHL);
         tvMatpreis = (TextView) rowView.findViewById(R.id.MEIN_MATERIAL_EINZELPREIS);
         tvMatgesamt = (TextView) rowView.findViewById(R.id.MEIN_MATERIAL_GESAMTPREIS);
 
         tvMatname.setText(material[position].getMaterialname());
         tvMatanzahl.setText(material[position].getAnzahl());
-        tvMatpreis.setText(Double.toString(material[position].getEinzelpreis()));
-        tvMatgesamt.setText(Double.toString(material[position].getGesamtpreis()));
+        tvMatpreis.setText(Integer.toString(material[position].getEinzelpreis()));
+        tvMatgesamt.setText(Integer.toString(material[position].getGesamtpreis()));
 
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
