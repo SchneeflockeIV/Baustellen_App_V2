@@ -50,16 +50,20 @@ public class BaustelleErstellen extends AppCompatActivity {
 
     public void clicked(View v){
         if(v.getId() == R.id.BAUSTELLE_BUTTON_ERSTELLEN){
-            fillBau();
-            insertBauInDB();
-            Toast.makeText(this, "Baustelle erstellt", Toast.LENGTH_SHORT).show();
+            if (!bauname.getText().toString().equals("") && !baustrasse.getText().toString().equals("") &&
+                    !bauort.getText().toString().equals("") && !bauplz.getText().toString().equals("") &&
+                    !bauherr.getText().toString().equals("")) {
+                fillBau();
+                insertBauInDB();
+                Toast.makeText(this, "Baustelle erstellt", Toast.LENGTH_SHORT).show();
+                final Intent myIntent = new Intent(this, BaustellenViewActivity2.class);
+                startActivity(myIntent);
+                finish();
+            } else Toast.makeText(this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
         }
-        else if (v.getId() == R.id.BAUSTELLE_BUTTON_ABBRECHEN){
+        if (v.getId() == R.id.BAUSTELLE_BUTTON_ABBRECHEN) {
             Toast.makeText(this, "Abgebrochen", Toast.LENGTH_SHORT).show();
             finish();
         }
-        final Intent myIntent = new Intent(this, BaustellenViewActivity2.class);
-        startActivity(myIntent);
-        finish();
     }
 }
