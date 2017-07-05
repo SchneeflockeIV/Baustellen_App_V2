@@ -10,7 +10,7 @@
         android:id="@+id/MEIN_BAUSTELLEN_BILD"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:background="@drawable/baustellenschild"/>
+        android:background="@drawable/ic_action_name"/>
 
     <LinearLayout
         android:paddingLeft="10dp"
