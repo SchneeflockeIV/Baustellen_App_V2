@@ -34,13 +34,15 @@
             android:id="@+id/MATERIAL_ANZAHL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="@string/materialanzahl"/>
 
         <EditText
             android:id="@+id/MATERIAL_EINZELPREIS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/materialeinzelpreis"/>
+            android:hint="@string/materialeinzelpreis"
+            android:inputType="number"/>
 
         <LinearLayout
             android:id="@+id/BUTTONMATERIAL_ERSTELLEN"

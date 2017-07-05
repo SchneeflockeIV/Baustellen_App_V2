@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,11 @@ public class MaterialViewActivity extends AppCompatActivity {
     int baustellen_id;
     Intent myIntent;
     Context context;
+    TextView bauName;
+    TextView bauStrasse;
+    TextView bauPlz;
+    TextView bauOrt;
+    TextView bauHerr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +42,21 @@ public class MaterialViewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        bauName = (TextView)findViewById(R.id.MATERIAL_BAUSTELLEN_NAME);
+        bauStrasse = (TextView)findViewById(R.id.MATERIAL_BAUSTELLEN_STRASSE);
+        bauPlz = (TextView)findViewById(R.id.MATERIAL_BAUSTELLEN_PLZ);
+        bauOrt = (TextView)findViewById(R.id.MATERIAL_BAUSTELLEN_ORT);
+        bauHerr = (TextView)findViewById(R.id.MATERIAL_BAUSTELLEN_HERR);
+
+
         context = this;
 
         extras = getIntent().getExtras();
       //  if(baustellen_id > 0){
             baustellen_id = extras.getInt("BAUSTELLEN_ID");
       //  }
+
+        fillBaustellenDaten();
 
         myIntent = new Intent(this, MaterialErstellen.class);
 
@@ -68,6 +85,17 @@ public class MaterialViewActivity extends AppCompatActivity {
 
         listView.setAdapter(MyAdapter);
    //     }
+    }
+
+    private void fillBaustellenDaten(){
+        DBManager db = new DBManager(this);
+        Baustellen bau = db.selectBaustelle(baustellen_id);
+
+        bauName.setText(bau.getBaustellenname());
+        bauStrasse.setText(bau.getStrasse());
+        bauOrt.setText(bau.getOrt());
+        bauPlz.setText(bau.getPlz());
+        bauHerr.setText(bau.getBauherr());
     }
 
 }

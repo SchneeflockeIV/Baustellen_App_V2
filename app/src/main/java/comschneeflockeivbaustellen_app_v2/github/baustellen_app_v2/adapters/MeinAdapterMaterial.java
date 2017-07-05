@@ -66,7 +66,7 @@ public class MeinAdapterMaterial extends BaseAdapter {
         tvMatgesamt = (TextView) rowView.findViewById(R.id.MEIN_MATERIAL_GESAMTPREIS);
 
         tvMatname.setText(material[position].getMaterialname());
-        tvMatanzahl.setText(material[position].getAnzahl());
+        tvMatanzahl.setText(Integer.toString(material[position].getAnzahl()));
         tvMatpreis.setText(Integer.toString(material[position].getEinzelpreis()));
         tvMatgesamt.setText(Integer.toString(material[position].getGesamtpreis()));
 

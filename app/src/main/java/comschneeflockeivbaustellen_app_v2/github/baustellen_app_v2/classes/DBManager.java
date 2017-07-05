@@ -129,6 +129,24 @@ public class DBManager extends SQLiteOpenHelper {
         return meinZeiger;
     }
 
+    public Baustellen selectBaustelle(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_BAUSTELLEN +" WHERE " + SPALTE_BAUSTELLEN_ID +" = '" + id +"'", null);
+        meinZeiger.moveToFirst();
+        Baustellen bau = new Baustellen();
+
+        bau.setBauId(meinZeiger.getInt(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_ID)));
+        bau.setBaustellenname(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_NAME)));
+        bau.setBauherr(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_BAUHERR)));
+        bau.setStrasse(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_STRASSE)));
+        bau.setOrt(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_ORT)));
+        bau.setPlz(meinZeiger.getString(meinZeiger.getColumnIndex(SPALTE_BAUSTELLEN_PLZ)));
+
+        meinZeiger.close();
+
+        return bau;
+    }
+
     // Mehtode um den Baustellen-Cursor in eine Baustellen-Arralist umzuwandeln
     public ArrayList<Baustellen> getBaustellenListe() {
         ArrayList<Baustellen> baustellenListe = new ArrayList<>();
@@ -184,7 +202,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     public Cursor selectAlleMaterial() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_MATERIAL, null);
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_MATERIAL , null);
         meinZeiger.moveToFirst();
         return meinZeiger;
     }
